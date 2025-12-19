@@ -4,6 +4,7 @@ pom.xml
 test/
 mvnw
 mvnw.cmd
+application.properties
 .mvn
 .mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/

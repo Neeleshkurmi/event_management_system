@@ -1,6 +1,7 @@
 package com.example.event_management_system.mapper;
 
 import com.example.event_management_system.dto.response.EventRegistrationResponse;
+import com.example.event_management_system.entity.EventRegistration;
 
 public class EventRegistrationMapper {
 

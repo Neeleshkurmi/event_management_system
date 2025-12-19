@@ -2,7 +2,7 @@ package com.example.event_management_system.dto.response;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.validator.constraints.UUID;
+import java.util.UUID;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;

@@ -1,6 +1,7 @@
 package com.example.event_management_system.mapper;
 
 import com.example.event_management_system.dto.response.SubEventResponse;
+import com.example.event_management_system.entity.SubEvent;
 
 public class SubEventMapper {
 

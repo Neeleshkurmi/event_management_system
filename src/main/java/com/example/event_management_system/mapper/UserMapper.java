@@ -1,6 +1,7 @@
 package com.example.event_management_system.mapper;
 
 import com.example.event_management_system.dto.response.UserResponse;
+import com.example.event_management_system.entity.User;
 
 public class UserMapper {
 

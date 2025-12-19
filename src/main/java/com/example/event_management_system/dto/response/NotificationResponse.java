@@ -1,10 +1,11 @@
 package com.example.event_management_system.dto.response;
 
+import com.example.event_management_system.enums.NotificationType;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.validator.constraints.UUID;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 @Getter
 @Setter
