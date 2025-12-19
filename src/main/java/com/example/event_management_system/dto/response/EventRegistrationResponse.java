@@ -10,7 +10,7 @@ import java.util.UUID;
 @Getter
 @Setter
 public class EventRegistrationResponse {
-        private UUID registrationId;
+        private Long registrationId;
         private String subEventTitle;
         private RegistrationStatus status;
 

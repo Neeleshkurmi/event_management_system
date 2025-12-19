@@ -10,7 +10,7 @@ import java.util.UUID;
 @Getter
 @Setter
 public class NotificationResponse {
-private UUID id;
+private Long id;
 private String title;
 private String message;
 private NotificationType type;

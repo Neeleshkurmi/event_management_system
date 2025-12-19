@@ -9,7 +9,7 @@ import java.util.UUID;
 @Getter
 @Setter
 public class EventCreateRequest {
-private UUID categoryId;
+private Long categoryId;
 private String title;
 private String description;
 private String venue;

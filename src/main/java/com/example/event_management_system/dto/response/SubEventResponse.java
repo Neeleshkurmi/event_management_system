@@ -11,7 +11,7 @@ import java.time.LocalTime;
 @Getter
 @Setter
 public class SubEventResponse {
-private UUID id;
+private Long id;
 private String title;
 private String description;
 private LocalDate eventDate;

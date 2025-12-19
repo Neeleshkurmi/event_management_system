@@ -9,7 +9,7 @@ import java.util.UUID;
 @Getter
 @Setter
 public class EventResponse {
-private UUID id;
+private Long id;
 private String title;
 private String description;
 private String venue;

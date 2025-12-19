@@ -7,5 +7,5 @@ import java.util.UUID;
 @Getter
 @Setter
 public class EventRegistrationRequest {
-    private UUID subEventId;
+    private Long subEventId;
 }

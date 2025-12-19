@@ -1,9 +1,6 @@
 package com.example.event_management_system.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.MappedSuperclass;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
@@ -18,11 +15,9 @@ import java.time.LocalDateTime;
 @Setter
 public abstract class BaseEntity {
     @Id
-    @GeneratedValue
-    @UuidGenerator
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(updatable = false, nullable = false)
-    private UUID id;
-
+    private Long id;
 
     @CreationTimestamp
     private LocalDateTime createdAt;

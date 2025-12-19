@@ -11,7 +11,7 @@ import java.util.UUID;
 @Getter
 @Setter
 public class SubEventCreateRequest {
-private UUID eventId;
+private Long eventId;
 private String title;
 private String description;
 private LocalDate eventDate;
