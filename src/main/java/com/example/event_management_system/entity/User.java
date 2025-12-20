@@ -2,6 +2,7 @@ package com.example.event_management_system.entity;
 
 import com.example.event_management_system.enums.Role;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -15,6 +16,7 @@ public class User extends BaseEntity {
 
 
     @Column(unique = true, nullable = false)
+    @Email
     private String email;
 
 
