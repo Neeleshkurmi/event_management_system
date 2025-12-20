@@ -2,10 +2,13 @@ HELP.md
 target/
 pom.xml
 test/
+/.mvn
 mvnw
+/.RestfulApiTool
+/target
+
 mvnw.cmd
 application.properties
-.mvn
 .mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
