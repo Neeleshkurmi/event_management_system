@@ -2,6 +2,8 @@
 
 ## 📋 Overview
 A robust Java-based Event Management System designed to streamline event planning, ticket management, and attendee coordination. This application provides comprehensive tools for organizers to manage events efficiently from creation to execution.
+<img width="1918" height="908" alt="image" src="https://github.com/user-attachments/assets/629bbd6e-601a-480b-8d54-120c61eccd76" />
+
 
 ## ✨ Features
 
