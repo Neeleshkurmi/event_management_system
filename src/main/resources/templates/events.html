@@ -1,23 +1,103 @@
 <!DOCTYPE html>
-<html th:replace="~{layout :: layout(~{::main})}" xmlns:th="http://www.w3.org/1999/xhtml">
-<main>
-    <h2 class="mb-4">Upcoming Events</h2>
-    <div class="row">
-        <div class="col-md-4 mb-4" th:each="event : ${events}">
-            <div class="card h-100 shadow-sm">
-                <div class="card-body">
-                    <h5 class="card-title" th:text="${event.title}">Event Title</h5>
-                    <p class="card-text text-muted" th:text="${event.description}">Description</p>
-                    <ul class="list-unstyled">
-                        <li><strong>📍 Venue:</strong> <span th:text="${event.venue}">Venue</span></li>
-                        <li><strong>📅 Starts:</strong> <span th:text="${event.startDate}">Date</span></li>
-                    </ul>
-                </div>
-                <div class="card-footer bg-transparent border-top-0">
-                    <a th:href="@{/events/{id}(id=${event.id})}" class="btn btn-outline-primary w-100">View Details</a>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events - Event Management System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        main {
+            flex: 1;
+        }
+        footer {
+            background-color: #f8f9fa;
+            padding: 20px 0;
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" th:href="@{/}">Event Management System</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/events}">Events</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/login}">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/register}">Register</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container my-4">
+        <div class="mb-4">
+            <h1>Upcoming Events</h1>
+            <p class="text-muted">Discover and register for amazing events</p>
+        </div>
+
+        <div th:if="${#lists.isEmpty(events)}" class="alert alert-info">
+            No events available at the moment. Check back later!
+        </div>
+
+        <div class="row" th:unless="${#lists.isEmpty(events)}">
+            <div class="col-md-6 col-lg-4 mb-4" th:each="event : ${events}">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="${event.title}">Event Title</h5>
+                        <p class="card-text text-muted" th:text="${event.description}">Event description</p>
+                        
+                        <div class="mb-2">
+                            <strong>📅 Date:</strong>
+                            <span th:text="${event.date}">Event Date</span>
+                        </div>
+                        
+                        <div class="mb-2">
+                            <strong>📍 Venue:</strong>
+                            <span th:text="${event.venue}">Event Venue</span>
+                        </div>
+                        
+                        <div class="mb-2">
+                            <strong>💰 Price:</strong>
+                            <span th:text="${'$' + event.price}">Event Price</span>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-transparent">
+                        <a th:href="@{/events/{id}(id=${event.id})}" class="btn btn-outline-primary btn-sm">
+                            View Details
+                        </a>
+                        <a th:href="@{/events/{id}/register(id=${event.id})}" class="btn btn-primary btn-sm">
+                            Register
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</main>
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center text-muted">
+        <div class="container">
+            <p class="mb-0">&copy; 2024 Event Management System. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>

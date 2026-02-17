@@ -27,7 +27,9 @@ private final JwtAuthenticationFilter jwtFilter;
     .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(auth -> auth
                     .requestMatchers("/api/auth/**").permitAll()
-                    .requestMatchers("/", "/login", "/register", "/events").permitAll()
+                    .requestMatchers(HttpMethod.GET, "/", "/error",
+                            "/login", "/register", "/events").permitAll()
+                    .requestMatchers(HttpMethod.POST, "/login", "/register").permitAll()
                     .requestMatchers("/css/**", "/js/**", "/images/**").permitAll()
                     .requestMatchers(HttpMethod.GET, "/api/events/**").permitAll()
                     .anyRequest().authenticated()
