@@ -93,6 +93,10 @@ A robust Java-based Event Management System designed to streamline event plannin
 | DELETE | `/api/events/{id}` | Delete event |
 | POST | `/api/events/{id}/tickets` | Generate tickets |
 | GET | `/api/tickets/{code}/validate` | Validate ticket |
+<img width="1367" height="895" alt="image" src="https://github.com/user-attachments/assets/fa242df0-89d2-48a3-983b-688519cce5a4" />
+<img width="1403" height="892" alt="image" src="https://github.com/user-attachments/assets/ae7f9601-a9a1-4879-837c-d15678d19b97" />
+
+
 
 ### Sample Request
 ```java
