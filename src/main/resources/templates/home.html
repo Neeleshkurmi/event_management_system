@@ -1,0 +1,26 @@
+" lang="en">
+<head xmlns:th="http://www.w3.org/1999/xhtml">
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+    <!-- Link to external CSS files using Thymeleaf URL syntax -->
+    <link rel="stylesheet" type="text/css" media="all"
+          href="../static/css/main.css" th:href="@{/css/main.css}" />
+</head>
+<body>
+<h1>Welcome to the Home Page!</h1>
+
+<!-- Display a dynamic message passed from the Spring Controller -->
+<p th:text="${message}">Default welcome message</p>
+
+<h2>Navigation</h2>
+<ul>
+    <!-- Link to another page (handled by a controller mapping) -->
+    <li><a href="otherPage.html" th:href="@{/otherPageUrl}">Go to another page</a></li>
+
+    <!-- Include a common fragment (e.g., a footer) -->
+    <div th:replace="fragments/footer :: footerFragment"></div>
+</ul>
+
+<p>Current Year: <span th:text="${#dates.format(#dates.createNow(), 'yyyy')}">2025</span></p>
+</body>
+</html>

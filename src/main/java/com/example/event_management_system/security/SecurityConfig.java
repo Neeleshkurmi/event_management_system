@@ -21,27 +21,29 @@ public class SecurityConfig {
 private final JwtAuthenticationFilter jwtFilter;
 
 
-@Bean
-public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-http
-.csrf(csrf -> csrf.disable())
-.authorizeHttpRequests(auth -> auth
-.requestMatchers("/api/auth/**").permitAll()
-.requestMatchers(HttpMethod.GET, "/api/events/**").permitAll()
-.anyRequest().authenticated()
-)
-.sessionManagement(session -> session
-.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-)
-.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
+    @Bean
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+    http
+    .csrf(csrf -> csrf.disable())
+            .authorizeHttpRequests(auth -> auth
+                    .requestMatchers("/api/auth/**").permitAll()
+                    .requestMatchers("/", "/login", "/register", "/events").permitAll()
+                    .requestMatchers("/css/**", "/js/**", "/images/**").permitAll()
+                    .requestMatchers(HttpMethod.GET, "/api/events/**").permitAll()
+                    .anyRequest().authenticated()
+            )
+            .sessionManagement(session -> session
+    .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+    )
+    .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
 
 
-return http.build();
-}
+    return http.build();
+    }
 
 
-@Bean
-public PasswordEncoder passwordEncoder() {
-return new BCryptPasswordEncoder();
-}
-}
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+    return new BCryptPasswordEncoder();
+    }
+    }

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html th:replace="~{layout :: layout(~{::main})}" xmlns:th="http://www.w3.org/1999/xhtml">
+<main>
+    <h2 class="mb-4">Upcoming Events</h2>
+    <div class="row">
+        <div class="col-md-4 mb-4" th:each="event : ${events}">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title" th:text="${event.title}">Event Title</h5>
+                    <p class="card-text text-muted" th:text="${event.description}">Description</p>
+                    <ul class="list-unstyled">
+                        <li><strong>📍 Venue:</strong> <span th:text="${event.venue}">Venue</span></li>
+                        <li><strong>📅 Starts:</strong> <span th:text="${event.startDate}">Date</span></li>
+                    </ul>
+                </div>
+                <div class="card-footer bg-transparent border-top-0">
+                    <a th:href="@{/events/{id}(id=${event.id})}" class="btn btn-outline-primary w-100">View Details</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+</html>
